@@ -87,6 +87,6 @@ export const contact = {
   links: [
     { label: 'GitHub', url: 'https://github.com/atullchaurasia', icon: 'devicon-github-original' },
     { label: 'LinkedIn', url: 'https://linkedin.com/in/atul-chaurasia-77b5081b9/', icon: 'devicon-linkedin-plain' },
-    { label: 'Resume', url: '/assets/Atul_Chaurasia_Resume.pdf', icon: 'devicon-readthedocs-original' },
+    { label: 'Resume', url: '/Atul_Chaurasia_Resume.pdf', icon: 'devicon-readthedocs-original' },
   ],
 };

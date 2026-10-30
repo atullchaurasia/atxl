@@ -1,5 +1,6 @@
-# keep resumes and local backups out of the repo
+# keep resumes and local backups out of the repo (except the one the site links to)
 *.pdf
+!public/Atul_Chaurasia_Resume.pdf
 index.dark-backup.html
 node_modules
 dist
