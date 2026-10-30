@@ -1,0 +1,28 @@
+import Section from './Section.jsx';
+import { contact } from '../data.js';
+
+const MailIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-3.5 mr-2">
+    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+    <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+  </svg>
+);
+
+export default function Contact() {
+  return (
+    <Section title="contact">
+      <p className="text-neutral-400 mb-3">you can find me at:</p>
+      <div className="flex flex-wrap gap-3">
+        <a href={`mailto:${contact.email}`} target="_blank" rel="noopener noreferrer" className="tech-tag group cursor-pointer">
+          <MailIcon /> {contact.email}
+        </a>
+        {contact.links.map(l => (
+          <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer" className="tech-tag group cursor-pointer">
+            <i className={`${l.icon} mr-2`}></i> {l.label}
+          </a>
+        ))}
+      </div>
+    </Section>
+  );
+}
