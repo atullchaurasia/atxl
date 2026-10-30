@@ -1,0 +1,138 @@
+/* Paper theme: remaps the Tailwind palette so every existing utility class
+   (bg-black, text-white, text-neutral-*, border-neutral-*) renders ink-on-paper. */
+
+:root {
+    --color-black: #f4efe4;
+    --color-white: #1c1a17;
+    --color-neutral-300: #34302a;
+    --color-neutral-400: #6e665b;
+    --color-neutral-500: #8a8174;
+    --color-neutral-600: #b3a998;
+    --color-neutral-700: #d8cfbf;
+    --color-neutral-800: #e2dacb;
+    --color-neutral-900: #ebe4d6;
+    --accent: #0f766e;
+    --contrib-0: #e6dece;
+    --contrib-1: #b7dccf;
+    --contrib-2: #6fb8a6;
+    --contrib-3: #2f8f7f;
+    --contrib-4: #0f5f57;
+    color-scheme: light;
+}
+
+/* faint paper grain */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: .07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--color-black);
+}
+
+.tech-tag {
+    background-color: var(--color-neutral-900);
+}
+
+/* list marker: pixel-font arrow */
+.marker {
+    font-family: var(--font-pixel);
+    font-weight: 900;
+    font-size: .75rem;
+    line-height: 1;
+    position: relative;
+    top: -2px;
+}
+
+a {
+    text-underline-offset: 3px;
+}
+
+a.text-neutral-400:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* section headings: prompt */
+.prompt {
+    color: var(--color-white);
+}
+
+/* experience timeline */
+.timeline-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.timeline {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 1.75rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: .3125rem;
+    top: .5rem;
+    bottom: .5rem;
+    width: 1px;
+    background: var(--color-neutral-700);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.75rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.75rem;
+    top: .4rem;
+    width: .6875rem;
+    height: .6875rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-neutral-600);
+    background: var(--color-black);
+}
+
+.timeline-current::before {
+    border-color: var(--color-white);
+    background: var(--color-white);
+}
+
+.timeline-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.timeline-dates {
+    flex-shrink: 0;
+}
+
+.timeline-company {
+    font-style: italic;
+    margin-top: .125rem;
+}
+
+.timeline-duration {
+    margin-top: .25rem;
+}
